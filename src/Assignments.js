@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ListGroup, Button } from "react-bootstrap";
 
-export default function Assignments({ newEvent, resetEvent }) {
+export default function Assignments({ newEvent }) {
   const [assignments, setAssignments] = useState([]);
   const [showAssignments, setShowAssignments] = useState(false);
 
@@ -49,26 +49,30 @@ export default function Assignments({ newEvent, resetEvent }) {
     <section id="assignments">
       <div className="d-flex justify-content-between mt-2 mb-3">
         {assignments.length > 0 && (
-          <Button onClick={toggleAssignments}>
-            {showAssignments ? "Hide Assignments" : "Show Assignments"}
-          </Button>
+          <>
+            <Button onClick={toggleAssignments}>
+              {showAssignments ? "Hide Assignments" : "Show Assignments"}
+            </Button>
+            {/* <Button>Send e-mail</Button> */}
+          </>
         )}
       </div>
-      {showAssignments && (
-        <ListGroup>
-          <h2>📜 Assignments 🎄</h2>
-          {assignments.map((assignment, index) => (
-            <ListGroup.Item
-              key={index}
-              className={`${
-                assignment.receiver === assignment.giver && "bg-indigo-500"
-              }`}
-            >
-              {assignment.giver}, seu amigo secreto: {assignment.receiver}
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
-      )}
+
+      <ListGroup>
+        <h2>📜 Assignments 🎄</h2>
+        {assignments.map((assignment, index) => (
+          <ListGroup.Item
+            key={index}
+            className={`${
+              assignment.receiver === assignment.giver && "bg-indigo-500"
+            }`}
+          >
+            {assignment.giver}, seu amigo secreto:{" "}
+            {showAssignments && assignment.receiver}
+            {/* {emails && assignment.receiver} */}
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
     </section>
   );
 }

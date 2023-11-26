@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Assignments from "./Assignments";
-import "./SecretSantaGenerator.css"; // Import CSS for custom styles
+import "./SecretSantaGenerator.css";
 
 const SecretSantaGenerator = () => {
   const [participantsInput, setParticipantsInput] = useState(
