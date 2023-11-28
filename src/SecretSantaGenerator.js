@@ -26,7 +26,7 @@ const SecretSantaGenerator = () => {
   };
 
   return (
-    <Container className="py-4">
+    <Container className="py-5">
       <h1 className="text-center mb-4">🎅 Secret Santa Generator 🎁</h1>
 
       <Form.Group>
@@ -35,6 +35,7 @@ const SecretSantaGenerator = () => {
           as="textarea"
           value={participantsInput}
           rows={5}
+          className="border-gray-700 bg-gray-900 textarea "
           onChange={handleParticipantChange}
         />
       </Form.Group>

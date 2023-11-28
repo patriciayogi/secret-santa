@@ -1,10 +1,9 @@
 import "./App.css";
-import "./SecretSantaGenerator";
 import SecretSantaGenerator from "./SecretSantaGenerator";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App --bs-gray-900">
       <SecretSantaGenerator />
     </div>
   );
