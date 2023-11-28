@@ -1,3 +1,7 @@
+![image](https://github.com/patriciayogi/secret-santa/assets/18370368/f681044b-23fd-4c0c-88ab-812bf48fcf6b)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
