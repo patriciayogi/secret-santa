@@ -54,6 +54,8 @@ export default function Assignments({ newEvent }) {
         // Add other template parameters if needed
       };
 
+      // Go to EmailJS and sign up for an account.
+      //Create an email service and a template in the EmailJS dashboard. Note down your USER_ID, SERVICE_ID, and TEMPLATE_ID
       emailjs
         .send(
           "YOUR_SERVICE_ID",
