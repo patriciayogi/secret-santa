@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ListGroup, Button, Form } from "react-bootstrap";
+import emailjs from "emailjs-com";
+import EMAILJS_CONFIG from "./config";
 
 export default function Assignments({ newEvent }) {
   const [assignments, setAssignments] = useState([]);
@@ -46,22 +48,24 @@ export default function Assignments({ newEvent }) {
 
   const sendEmails = () => {
     console.log("Sending emails to:", participantEmails);
-    alert("Update your settings: YOUR_SERVICE_ID");
+
     participantEmails.forEach((email, index) => {
       const templateParams = {
         to_email: email,
         assignment: assignments[index].receiver,
-        // Add other template parameters if needed
+        to_name: assignments[index].giver,
+        message: `Your secret santa assigment is : ${assignments[index].receiver}`,
+        from_name: EMAILJS_CONFIG.FROM,
       };
-
+      alert("Update your settings(config.js)");
       // Go to EmailJS and sign up for an account.
       //Create an email service and a template in the EmailJS dashboard. Note down your USER_ID, SERVICE_ID, and TEMPLATE_ID
       emailjs
         .send(
-          "YOUR_SERVICE_ID",
-          "YOUR_TEMPLATE_ID",
+          EMAILJS_CONFIG.SERVICE_ID, // Use credentials from config file
+          EMAILJS_CONFIG.TEMPLATE_ID,
           templateParams,
-          "YOUR_USER_ID"
+          EMAILJS_CONFIG.USER_ID
         )
         .then((response) => {
           console.log("Email sent!", response);
